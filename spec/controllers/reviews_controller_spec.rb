@@ -110,7 +110,7 @@ RSpec.describe Spree::ReviewsController, type: :controller do
                       name: 'Ryan Bigg',
                       title: 'Great Product',
                       review: 'Some big review text..' } }
-      expect(response).to redirect_to spree.product_path(product)
+      expect(response).to redirect_to spree.edit_admin_product_path(product)
     end
 
     it 'removes all non-numbers from ratings param' do

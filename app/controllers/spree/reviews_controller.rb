@@ -26,7 +26,7 @@ module Spree
       authorize! :create, @review
       if @review.save
         flash[:notice] = Spree.t(:review_successfully_submitted)
-        redirect_to spree.product_path(@product)
+        redirect_to spree.edit_admin_product_path(@product)
       else
         render :new
       end

@@ -10,7 +10,7 @@ describe 'Reviews', :js do
     let!(:product_no_reviews) { create(:product) }
 
     it 'informs that no reviews has been written yet' do
-      visit spree.product_path(product_no_reviews)
+      visit spree.edit_admin_product_path(product_no_reviews)
       expect(page).to have_text Spree.t(:no_reviews_available)
     end
 
@@ -22,7 +22,7 @@ describe 'Reviews', :js do
       end
 
       it 'displayed reviews are limited by the set preview size' do
-        visit spree.product_path(product_no_reviews)
+        visit spree.edit_admin_product_path(product_no_reviews)
         expect(page.all('.review').count).to be(2)
       end
     end
@@ -35,7 +35,7 @@ describe 'Reviews', :js do
 
     context 'visit product with review' do
       before do
-        visit spree.product_path(review.product)
+        visit spree.edit_admin_product_path(review.product)
       end
 
       it 'can see review title' do
@@ -52,7 +52,7 @@ describe 'Reviews', :js do
     context 'visit product with review' do
       before do
         Spree::Reviews::Config.require_login = true
-        visit spree.product_path(review.product)
+        visit spree.edit_admin_product_path(review.product)
       end
 
       it 'can see review title' do
@@ -98,7 +98,7 @@ describe 'Reviews', :js do
     let!(:review) { create(:review, :approved, :hide_identifier, review: 'review text', user: someone) }
 
     before do
-      visit spree.product_path(review.product)
+      visit spree.edit_admin_product_path(review.product)
     end
 
     it 'show anonymous review' do

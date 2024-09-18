@@ -18,7 +18,7 @@
 
         <%= link_to Spree.t(:write_your_own_review), new_product_review_path(@product), class: 'btn btn-primary', rel: 'nofollow' %>
         <%= Spree.t(:or) %>
-        <%= link_to Spree.t(:back_to) + " " +@product.name, product_path(@product), class: 'btn btn-outline-primary', rel: 'nofollow' %>
+        <%= link_to Spree.t(:back_to) + " " +@product.name, edit_admin_product_path(@product), class: 'btn btn-outline-primary', rel: 'nofollow' %>
 
         <% if Spree.version.to_f < 4.0 %>
             <% if @approved_reviews.respond_to?(:total_pages) %>

@@ -1,5 +1,5 @@
 <%= form_for review, url: product_reviews_path(product), html: { method: :post } do |f| %>
-  <%= render 'spree/shared/error_messages', target: review %>
+  <%= render 'spree/admin/shared/error_messages', target: review %>
 
   <div class="form-group">
     <%= f.label :rating %>
@@ -33,6 +33,6 @@
   <div class="form-actions">
     <%= f.submit Spree.t(:submit_your_review), class: 'btn btn-primary' %>
          <%= Spree.t(:or) %>
-    <%= link_to Spree.t(:cancel), product_path(@product), class: 'btn btn-outline-primary', rel: 'nofollow' %>
+    <%= link_to Spree.t(:cancel), edit_admin_product_path(@product), class: 'btn btn-outline-primary', rel: 'nofollow' %>
   </div>
 <% end %>
